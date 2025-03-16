@@ -10,10 +10,8 @@ using namespace std;
 constexpr int INF = numeric_limits<int>::max();
 
 struct Node{
-	int vertex;
-    int weight;
+	
 }
-
 
 
 struct Edge {
@@ -34,10 +32,6 @@ struct Edge {
 
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
-    list adjaencyList;
-    List distance;
-    list previous;
-    list visited;
 };
 
 inline istream& operator>>(istream& in, Graph& G) {
@@ -57,8 +51,6 @@ inline void file_to_graph(const string& filename, Graph& G) {
     in >> G;
     in.close();
 }
-
-void dijikstra(int source, Graph& G);
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous);
 vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination);
