@@ -14,8 +14,6 @@ struct Node{
     int weight;
 }
 
-
-
 struct Edge {
     int src=0;
     int dst=0;
@@ -34,10 +32,10 @@ struct Edge {
 
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
-    list adjaencyList;
-    List distance;
-    list previous;
-    list visited;
+    vector<string> adjencyList;
+    vector<string> distance;
+    vector<string> previous;
+    vector<string> visited;
 };
 
 inline istream& operator>>(istream& in, Graph& G) {
