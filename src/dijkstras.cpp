@@ -30,6 +30,11 @@ void dijikstra(int source, Graph& G){
 	}
 }
 
+vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination){
+	
+}
+
+
 void print_path(const vector<int>& v, int total){
 	for (int num: v){
 		cout << num<< " ";
