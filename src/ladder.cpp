@@ -22,6 +22,9 @@ bool is_adjacent(const string& word1, const string& word2){
     int smaller_len = min(word1.length(), word2.length());
     int bigger_len = max(word1.length(), word2.length());
 
+    if (bigger_len-smaller_len != 1){
+        return false;
+    }
     string small;
     string big;
 
