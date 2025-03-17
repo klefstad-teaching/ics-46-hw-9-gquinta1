@@ -32,7 +32,7 @@ void dijikstra(int source, Graph& G){
 }
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous){
-	Graph gg= G; 
+	Graph gg = G; 
 	dijikstra(source, gg);
 	return gg.distance;
 }
@@ -50,5 +50,5 @@ void print_path(const vector<int>& v, int total){
 	for (int num: v){
 		cout << num<< " ";
 	}
-	cout<< "The total cost is "<< total<< endl;
+	cout<< "\nThe total cost is "<< total<< endl;
 }
