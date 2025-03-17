@@ -12,7 +12,10 @@ constexpr int INF = numeric_limits<int>::max();
 struct Node{
 	int vertex;
     int weight;
-}
+
+    Node(int vx, int wt): vertex(vx), weight(wt){};
+
+};
 
 struct Edge {
     int src=0;
@@ -32,7 +35,7 @@ struct Edge {
 
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
-    vector<string> adjencyList;
+    vector<vector<Node>> adjencyList;
     vector<int> distance;
     vector<int> previous;
     vector<bool> visited;
@@ -41,7 +44,7 @@ struct Graph : public vector<vector<Edge>> {
 inline istream& operator>>(istream& in, Graph& G) {
     if (!(in >> G.numVertices))
         throw runtime_error("Unable to find input file");
-    G.assign(G.numVertices);
+    G.resize(G.numVertices);
     for (Edge e; in >> e;)
         G[e.src].push_back(e);
     return in;

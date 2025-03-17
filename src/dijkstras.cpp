@@ -2,37 +2,38 @@
 
 
 void dijikstra(int source, Graph& G){
-    n = graph.adjencyList.size();
-    graph.distance.resize(n, INT_MAX);
-    graph.previosu.resize(n, -1);
-    graph.visited.resize(n, false);
-    priorityQueue pq;
+    int n = G.adjencyList.size();
+    G.distance.resize(n, INF);
+    G.previous.resize(n, -1);
+    G.visited.resize(n, false);
+    priority_queue<Node, vector<Node>, greater<Node>> pq;
 	pq.push(Node(source, 0));
-	graph.distance[source] = 0;
+	G.distance[source] = 0;
 
-	while !pq.empty(){
-		current = pq.pop_top();
-		u = current.vertex;
-		if (graph.visited[u]){
+	while (!pq.empty()){
+		Node current = pq.top();
+		pq.pop();
+		int u = current.vertex;
+		if (G.visited[u]){
 			continue;
 		}
-		graph.visited[u] = true;
-		for (String neighbor: graph.adjencyList[u]){
-			v = neighbor.vertex;
-			weight = neighbor.weight;
-		}
+		G.visited[u] = true;
+		for (Node neighbor: G.adjencyList[u]){
+			int v = neighbor.vertex;
+			int weight = neighbor.weight;
 
-		if (!graph.visited[v] && graph.distance[u] + weight < graph.distance[v]){
-			graph.distance[v] = graph.distance[u] + weight;
-			graph.previous[v] = u;
-			pq.push(Node(v,graph.distance[v]));
+			if (!G.visited[v] && G.distance[u] + weight < G.distance[v]){
+				G.distance[v] = G.distance[u] + weight;
+				G.previous[v] = u;
+				pq.push(Node(v,G.distance[v]));
+			}
 		}
 	}
 }
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous){
 	dijikstra(source, G);
-	return G.distance
+	return G.distance;
 }
 
 vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination){
