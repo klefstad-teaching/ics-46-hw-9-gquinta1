@@ -15,6 +15,9 @@ struct Node{
 
     Node(int vx, int wt): vertex(vx), weight(wt){};
 
+    bool operator >(const Node& other)const{
+        return weight>other.weight;
+    }
 };
 
 struct Edge {
