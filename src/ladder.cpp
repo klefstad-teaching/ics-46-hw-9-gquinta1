@@ -1,7 +1,8 @@
+#include "ladder.h"
 
-
+using namespace std;
 void error(string word1, string word2, string msg){
-
+    cout << word1 << word2 << msg<< endl;
 }
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d){  
@@ -52,13 +53,17 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 }
 
 void load_words(set<string> & word_list, const string& file_name){
-    
+
+
 }
 
 void print_word_ladder(const vector<string>& ladder){
-
+    for (string word: ladder){
+        cout << word<< "words.txt";
+    }
 }
 
 void verify_word_ladder(){
-
+    set<string> word_list;
+    load_words(word_list, )
 }

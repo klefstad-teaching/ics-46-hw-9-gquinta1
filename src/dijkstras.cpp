@@ -1,3 +1,4 @@
+#include "dijkstras.h"
 
 
 void dijikstra(int source, Graph& G){
@@ -12,8 +13,8 @@ void dijikstra(int source, Graph& G){
 	while !pq.empty(){
 		current = pq.pop_top();
 		u = current.vertex;
-		if (!graph.visited[u]){
-			break;
+		if (graph.visited[u]){
+			continue;
 		}
 		graph.visited[u] = true;
 		for (String neighbor: graph.adjencyList[u]){
@@ -21,7 +22,7 @@ void dijikstra(int source, Graph& G){
 			weight = neighbor.weight;
 		}
 
-		if (!graph.visited[v] && graph.dostance[u] + weight < graph.distance[v]){
+		if (!graph.visited[v] && graph.distance[u] + weight < graph.distance[v]){
 			graph.distance[v] = graph.distance[u] + weight;
 			graph.previous[v] = u;
 			pq.push(Node(v,graph.distance[v]));
@@ -29,3 +30,9 @@ void dijikstra(int source, Graph& G){
 	}
 }
 
+void print_path(const vector<int>& v, int total){
+	for (int num: v){
+		cout << num<< " ";
+	}
+	cout<< "The total cost is "<< total<< endl;
+}
