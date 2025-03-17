@@ -106,5 +106,7 @@ void print_word_ladder(const vector<string>& ladder){
 void verify_word_ladder(){
     set<string> word_list;
     load_words(word_list, "src/words.txt");
-    //cout << generate_word_ladder("cat", "dog", word_list).size()<<endl;
+    //vector<string> vec = generate_word_ladder("car", "cheat", word_list);
+    //cout << vec.size()<<endl;
+    //print_word_ladder(vec);
 }

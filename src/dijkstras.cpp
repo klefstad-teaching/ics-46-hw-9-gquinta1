@@ -30,8 +30,17 @@ void dijikstra(int source, Graph& G){
 	}
 }
 
-vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination){
-	
+vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous){
+	dijikstra(source, G);
+	return G.distance
+}
+
+vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination){
+	vector<int> shortest_path;
+	for (int i = destination; i!=-1; i = previous[i]){
+		shortest_path.push_back(i);
+	}
+	return shortest_path;
 }
 
 
