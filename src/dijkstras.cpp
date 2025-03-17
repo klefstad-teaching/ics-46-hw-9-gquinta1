@@ -1,6 +1,6 @@
 #include "dijkstras.h"
 
-
+using namespace std;
 void dijikstra(int source, Graph& G){
     int n = G.adjencyList.size();
     G.distance.resize(n, INF);
@@ -39,7 +39,11 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
 vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination){
 	vector<int> shortest_path;
+	if (distances[destination] == INF){
+		return shortest_path;
+	}
 	for (int i = destination; i!=-1; i = previous[i]){
+
 		shortest_path.push_back(i);
 	}
 	reverse(shortest_path.begin(), shortest_path.end());
